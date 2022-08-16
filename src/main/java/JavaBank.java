@@ -10,6 +10,15 @@ public class JavaBank extends JFrame {
     /**
      *
      */
+
+//    for(int i = 0;i<noAccounts;i++){
+//        displayJTextArea.setText(
+//                "Bank Name     : " + myAccounts[i].getBankName() +
+//                "\nAccount Holder   : " + myAccounts[i].getaccountname() +
+//                "\nAccount Number   : " + myAccounts[i].getaccountnum() +
+//                "\nAccount Balance  : " + myAccounts[i].getBalance());
+//    }
+
     private static final long serialVersionUID = 1L;
     // Make these variables publicly available
     public String Name;
@@ -18,6 +27,12 @@ public class JavaBank extends JFrame {
     CompanyColor companyColor = new CompanyColor();
     private Color myColor = new Color(companyColor.getR(),companyColor.getG(), companyColor.getB());
 
+    private void displayAccountDetails(String bName, String aName, int aNum, int aBal){
+        displayJTextArea.setText("Bank Name        : " + bName
+        + "\nAccount Holder    : " + aName
+        + "\nAccount Number    : " + aNum
+        + "\nAccount Balance   : " + aBal);
+    }
 
     // JPanel for user inputs
     private JPanel inputDetailJPanel;
@@ -308,7 +323,7 @@ public class JavaBank extends JFrame {
             //System.out.println(myAccounts[noAccounts].getaccountname());
             //emptyAccount = i;
 
-            displayJTextArea.setText(myAccounts[noAccounts].getaccountname() + " " + myAccounts[noAccounts].getaccountnum() + " " + myAccounts[noAccounts].getbalance());
+            displayJTextArea.setText(myAccounts[noAccounts].getaccountname() + " " + myAccounts[noAccounts].getaccountnum() + " " + myAccounts[noAccounts].getBalance());
             noAccounts ++;
             System.out.println(noAccounts);
         }
@@ -367,13 +382,13 @@ public class JavaBank extends JFrame {
 
             for (int i=0; i<noAccounts; i++) {
                 if ((myAccounts[i].getaccountnum() == Accountnum) && (Deposit>0)) {
-                    myAccounts[i].setbalance(myAccounts[i].getbalance()+Deposit);
-                    displayJTextArea.setText(myAccounts[i].getaccountname() + " " + myAccounts[i].getaccountnum() + " " + myAccounts[i].getbalance());
+                    myAccounts[i].setbalance(myAccounts[i].getBalance()+Deposit);
+                    displayJTextArea.setText(myAccounts[i].getaccountname() + " " + myAccounts[i].getaccountnum() + " " + myAccounts[i].getBalance());
                 }
 
                 if ((myAccounts[i].getaccountnum() == Accountnum) && (Withdraw>0)) {
-                    myAccounts[i].setbalance(myAccounts[i].getbalance()-Withdraw);
-                    displayJTextArea.setText(myAccounts[i].getaccountname() + " " + myAccounts[i].getaccountnum() + " " + myAccounts[i].getbalance());
+                    myAccounts[i].setbalance(myAccounts[i].getBalance()-Withdraw);
+                    displayJTextArea.setText(myAccounts[i].getaccountname() + " " + myAccounts[i].getaccountnum() + " " + myAccounts[i].getBalance());
                 }
 
             }
@@ -400,7 +415,7 @@ public class JavaBank extends JFrame {
         }else {
             for (int i=0; i<noAccounts; i++) {
 
-                displayJTextArea.append(myAccounts[i].getaccountname() + " " + myAccounts[i].getaccountnum() + " " + myAccounts[i].getbalance() + "\n");
+                displayJTextArea.append(myAccounts[i].getaccountname() + " " + myAccounts[i].getaccountnum() + " " + myAccounts[i].getBalance() + "\n");
 
 
 
@@ -416,7 +431,6 @@ public class JavaBank extends JFrame {
 
 
     }
-
 
 
     public static void main(String[] args) {

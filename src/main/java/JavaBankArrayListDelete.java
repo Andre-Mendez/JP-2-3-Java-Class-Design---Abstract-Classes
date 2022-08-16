@@ -288,7 +288,7 @@ public class JavaBankArrayListDelete extends JFrame {
             //Set a temp Account for display purposes
             Account tempAccount = (Account)Accounts.get(Accounts.size()-1);
             //Display tempAccount
-            displayJTextArea.setText(Accounts.size() + " " + tempAccount.getaccountname() + " " + tempAccount.getaccountnum() + " " + tempAccount.getbalance());
+            displayJTextArea.setText(Accounts.size() + " " + tempAccount.getaccountname() + " " + tempAccount.getaccountnum() + " " + tempAccount.getBalance());
 
         }
         else {
@@ -355,16 +355,16 @@ public class JavaBankArrayListDelete extends JFrame {
                 Account tempAccount = (Account)Accounts.get(i);
                 // if account number matches and deposit field has entry then deposit in account
                 if ((tempAccount.accountnum == Accountnum) && (Deposit>0)) {
-                    tempAccount.setbalance(tempAccount.getbalance()+Deposit);
+                    tempAccount.setbalance(tempAccount.getBalance()+Deposit);
                     Accounts.set(i, tempAccount);
-                    displayJTextArea.setText(tempAccount.getaccountname() + " " + tempAccount.getaccountnum() + " " + tempAccount.getbalance());
+                    displayJTextArea.setText(tempAccount.getaccountname() + " " + tempAccount.getaccountnum() + " " + tempAccount.getBalance());
 
                 }
                 // if account number matches and withdrawal field has entry then withdraw from account
                 if ((tempAccount.accountnum == Accountnum) && (Withdraw>0)) {
-                    tempAccount.setbalance(tempAccount.getbalance()-Withdraw);
+                    tempAccount.setbalance(tempAccount.getBalance()-Withdraw);
                     Accounts.set(i, tempAccount);
-                    displayJTextArea.setText(tempAccount.getaccountname() + " " + tempAccount.getaccountnum() + " " + tempAccount.getbalance());
+                    displayJTextArea.setText(tempAccount.getaccountname() + " " + tempAccount.getaccountnum() + " " + tempAccount.getBalance());
 
                 }
             }
@@ -391,7 +391,7 @@ public class JavaBankArrayListDelete extends JFrame {
         }else {
             for (int i=0; i < Accounts.size(); i++) {
                 Account tempAccount = (Account)Accounts.get(i);
-                displayJTextArea.append(tempAccount.getaccountname() + " " + tempAccount.getaccountnum() + " " + tempAccount.getbalance()  + "\n");
+                displayJTextArea.append(tempAccount.getaccountname() + " " + tempAccount.getaccountnum() + " " + tempAccount.getBalance()  + "\n");
 
 
             }

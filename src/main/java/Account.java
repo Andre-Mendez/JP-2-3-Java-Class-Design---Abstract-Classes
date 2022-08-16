@@ -1,5 +1,5 @@
 
-public class Account {
+public class Account implements InterfaceBankAccount{
 
     // class variables
     String accountname;
@@ -9,6 +9,7 @@ public class Account {
     //default constructor for Account
     Account()
     {
+        this.accountname="EMPTY";
         this.accountname="EMPTY";
         this.accountnum=0;
         this.balance=0;
@@ -58,13 +59,22 @@ public class Account {
         return accountnum;
     }
     //accessor to get the account balance
-    public int getbalance ( ) {
+    public int getBalance() {
 
         return balance;
     }
 
+    @Override
+    public String getBankName() {
+        return InterfaceBankAccount.BANK;
+    }
+
     //print method
     public void print() {
-        System.out.println(accountname + " " + accountnum + " " + balance);
+        System.out.println("\n" +
+                "Bank Name         : " + getBankName() +
+                "\nAccount Holder    : " + accountname +
+                "\nAccount Number    : " + accountnum +
+                "\nAccount Balance   : " + balance);
     }
 }
