@@ -323,7 +323,7 @@ public class JavaBank extends JFrame {
             //System.out.println(myAccounts[noAccounts].getaccountname());
             //emptyAccount = i;
 
-            displayJTextArea.setText(myAccounts[noAccounts].getaccountname() + " " + myAccounts[noAccounts].getaccountnum() + " " + myAccounts[noAccounts].getBalance());
+            displayJTextArea.setText(myAccounts[noAccounts].getAccountName() + " " + myAccounts[noAccounts].getAccountNum() + " " + myAccounts[noAccounts].getBalance());
             noAccounts ++;
             System.out.println(noAccounts);
         }
@@ -381,14 +381,14 @@ public class JavaBank extends JFrame {
 
 
             for (int i=0; i<noAccounts; i++) {
-                if ((myAccounts[i].getaccountnum() == Accountnum) && (Deposit>0)) {
-                    myAccounts[i].setbalance(myAccounts[i].getBalance()+Deposit);
-                    displayJTextArea.setText(myAccounts[i].getaccountname() + " " + myAccounts[i].getaccountnum() + " " + myAccounts[i].getBalance());
+                if ((myAccounts[i].getAccountNum() == Accountnum) && (Deposit>0)) {
+                    myAccounts[i].setBalance(myAccounts[i].getBalance()+Deposit);
+                    displayJTextArea.setText(myAccounts[i].getAccountName() + " " + myAccounts[i].getAccountNum() + " " + myAccounts[i].getBalance());
                 }
 
-                if ((myAccounts[i].getaccountnum() == Accountnum) && (Withdraw>0)) {
-                    myAccounts[i].setbalance(myAccounts[i].getBalance()-Withdraw);
-                    displayJTextArea.setText(myAccounts[i].getaccountname() + " " + myAccounts[i].getaccountnum() + " " + myAccounts[i].getBalance());
+                if ((myAccounts[i].getAccountNum() == Accountnum) && (Withdraw>0)) {
+                    myAccounts[i].setBalance(myAccounts[i].getBalance()-Withdraw);
+                    displayJTextArea.setText(myAccounts[i].getAccountName() + " " + myAccounts[i].getAccountNum() + " " + myAccounts[i].getBalance());
                 }
 
             }
@@ -415,7 +415,7 @@ public class JavaBank extends JFrame {
         }else {
             for (int i=0; i<noAccounts; i++) {
 
-                displayJTextArea.append(myAccounts[i].getaccountname() + " " + myAccounts[i].getaccountnum() + " " + myAccounts[i].getBalance() + "\n");
+                displayJTextArea.append(myAccounts[i].getAccountName() + " " + myAccounts[i].getAccountNum() + " " + myAccounts[i].getBalance() + "\n");
 
 
 

@@ -1,62 +1,63 @@
 
-public class Account implements InterfaceBankAccount{
+public class Account extends AbstractBankAccount{
 
-    // class variables
-    String accountname;
-    int accountnum;
-    int balance;
-
-    //default constructor for Account
-    Account()
-    {
-        this.accountname="EMPTY";
-        this.accountname="EMPTY";
-        this.accountnum=0;
-        this.balance=0;
-    }
+    private int bonusValue;
 
     //overloaded constructor for Account
     Account(String name, int num,int amt)
     {
-        accountname=name;
-        accountnum=num;
-        balance=amt;
+        super(name, num, (amt + calculateInitialBonusValue(amt)));
+        bonusValue = calculateInitialBonusValue(amt);
     }
+
+    public static int calculateInitialBonusValue(int amt){
+        if(amt >= 1 && amt <= 100){
+            return 10;
+        } else if(amt <= 200){
+            return 20;
+        } else {
+            return 30;
+        }
+    }
+
     //make a deposit to the balance
-    public void deposit(int amt)
-    {
-        balance=balance+amt;
+    public void deposit(int amt) {
+        if(amt > 100){
+            balance=balance+(amt + (int) (bonusValue * 0.1));
+        } else {
+            balance = balance + amt;
+        }
     }
     //make a withdrawal from the balance
     public void withdraw(int amt)
     {
         balance=balance-amt;
     }
-    //modifier to set the accountname
-    public void setaccountname(String name)
+    //modifier to set the accountName
+    public void setAccountName(String name)
     {
-        accountname = name;
+        accountName = name;
     }
-    //modifier to set the accountnumber
-    public void setaccountnum(int num)
+    //modifier to set the accountNumber
+    public void setAccountNum(int num)
     {
-        accountnum = num;
+        accountNum = num;
     }
     //modifier to set the balance
-    public void setbalance(int num)
+    public void setBalance(int num)
     {
         balance = num;
     }
-    //accessor to get the accountname
-    public String getaccountname ( ) {
+    //accessor to get the accountName
+    public String getAccountName ( ) {
 
-        return accountname;
+        return accountName;
     }
 
-    //accessor to get the accountnumber
-    public int getaccountnum ( ) {
+    //accessor to get the accountNumber
+    public int getAccountNum ( ) {
 
-        return accountnum;
+        return accountNum;
     }
     //accessor to get the account balance
     public int getBalance() {
@@ -64,7 +65,6 @@ public class Account implements InterfaceBankAccount{
         return balance;
     }
 
-    @Override
     public String getBankName() {
         return InterfaceBankAccount.BANK;
     }
@@ -73,8 +73,8 @@ public class Account implements InterfaceBankAccount{
     public void print() {
         System.out.println("\n" +
                 "Bank Name         : " + getBankName() +
-                "\nAccount Holder    : " + accountname +
-                "\nAccount Number    : " + accountnum +
+                "\nAccount Holder    : " + accountName +
+                "\nAccount Number    : " + accountNum +
                 "\nAccount Balance   : " + balance);
     }
 }
